@@ -1,0 +1,25 @@
+{
+  "name": "richpanel_backend",
+  "version": "1.0.0",
+  "description": "Richpanel Assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthusun8/richpanel_backend.git"
+  },
+  "keywords": [
+    "richpanel",
+    "backend",
+    "netflix_plans",
+    "stripe"
+  ],
+  "author": "Parth Sundarka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthusun8/richpanel_backend/issues"
+  },
+  "homepage": "https://github.com/parthusun8/richpanel_backend#readme"
+}
