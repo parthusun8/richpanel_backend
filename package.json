@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/parthusun8/richpanel_backend/issues"
   },
-  "homepage": "https://github.com/parthusun8/richpanel_backend#readme"
+  "homepage": "https://github.com/parthusun8/richpanel_backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
 }
