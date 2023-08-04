@@ -17,12 +17,13 @@ console.log(process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI);
 console.log('Connected to DB');
 
-// app.get("/", (req, res) => {
-//     console.log("Hello World!");
-//     res.send("Hello World!");
-// });
+app.get("/", (req, res) => {
+    console.log("Hello World!");
+    res.send("Hello World!");
+});
 
 app.use(require('./routes/user.router'));
+app.use(require('./routes/billing.router'));
 
 const server = http.createServer(app);
 const port = process.env.PORT || 3000;

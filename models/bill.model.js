@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
-const user = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
+
+const bill = new mongoose.Schema({
     email : {
         type: String,
         required: true, //Making email as username
+    }, 
+    amount : {
+        type: Number,
+        required: true,
     },
-    password : {
+    plan : {
         type: String,
         required: true,
     },
-    current_plan : {
+    payment_id : {
         type: String,
-        default: "Free",
+        required: true,
     }
 });
 
-module.exports = mongoose.model('user', user);
+module.exports = mongoose.model('Bill', bill);

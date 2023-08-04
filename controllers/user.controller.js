@@ -40,6 +40,41 @@ const register = async(req, res) => {
     }
 }
 
+const login = async(req, res) => {
+    try{
+        const { email, password } = req.body;
+        if(email!="" && password!=""){
+            const checkExists = await User.findOne({email: email});
+            if(checkExists==null){
+                res.status(201).send({
+                    'msg' : 'User does not exist',
+                });
+                return;
+            } else{
+                if(checkExists.password==password){
+                    res.status(200).send({
+                        'msg' : 'User logged in successfully',
+                    });
+                } else{
+                    res.status(201).send({
+                        'msg' : 'Incorrect Password',
+                    });
+                }
+            }
+        } else{
+            res.status(400).json({
+                message: "All fields are required"
+            })
+        }
+    } catch(err){
+        console.log(err);
+        res.status(500).send({
+            'msg' : 'Internal Server Error',
+        });
+    }
+}
+
 module.exports = {
-    register
+    register,
+    login
 }
