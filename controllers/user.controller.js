@@ -101,6 +101,8 @@ const login = async(req, res) => {
                         current_plan : checkExists.current_plan,
                         plan_details : plans[checkExists.current_plan]!="Free" ? plans[checkExists.current_plan] : {},
                         subscriptionId : checkExists.subscriptionId,
+                        cancelled : checkExists.cancelled,
+                        planType : checkExists.planType,
                     });
                 } else{
                     res.status(201).send({
@@ -127,6 +129,7 @@ const updateCurrentPlan = async (req, res) => {
             $set : {
                 current_plan : req.body.planName,
                 subscriptionId : req.body.subscriptionId,
+                planType : req.body.planType,
             }
         });
         if(userExists){

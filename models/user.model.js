@@ -19,6 +19,14 @@ const user = new mongoose.Schema({
     subscriptionId : {
         type: String,
         default: "",
+    },
+    cancelled : {
+        type: Boolean,
+        default: false,
+    },
+    planType : {
+        type: String,
+        default: "Monthly",
     }
 });
 

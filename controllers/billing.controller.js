@@ -1,5 +1,5 @@
 const stripe = require('stripe')('sk_test_51KCJrzSErffaDKeGy6S369jDMEszJ3UDNkB9ed6nqdRieuoLP6NQOgAJ1GgcUBRDBUM8n63PP4ZO12iW9jWqUS5W00XqSWNuGM');
-
+const User = require('../models/user.model');
 
 const getLatestOffers = async (req, res) => {
     try{
@@ -110,12 +110,18 @@ const subscribe = async (req, res) => {
 
 const cancel = async (req, res) => {
 
-    const getSubs = await stripe.subscriptions.retrieve(req.body.subscriptionId);
     const subscription = await stripe.subscriptions.update(req.body.subscriptionId, {
         cancel_at_period_end: true,
     });
+
+    const up = await User.findOneAndUpdate({email: req.body.email}, {
+        $set: {
+            subscriptionId: "",
+            cancelled : true,
+        }
+    })
     
-    if(subscription){
+    if(subscription && up){
         res.status(200).send({
             message: "Subscription cancelled successfully",
         });
