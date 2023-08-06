@@ -15,6 +15,10 @@ const user = new mongoose.Schema({
     current_plan : {
         type: String,
         default: "Free",
+    },
+    subscriptionId : {
+        type: String,
+        default: "",
     }
 });
 
